@@ -92,6 +92,9 @@ function renderTabela() {
       case 'Fechado':
         turnoClass = 'fechado'; // Preto com letras brancas
         break;
+        case 'Feriado':
+        turnoClass = 'feriado'; // Preto com letras brancas
+        break;
     }
 
     const row = `<tr class="${turnoClass}">

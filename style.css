@@ -31,7 +31,7 @@ input, select {
 }
 
 .matutino {
-  background-color: #dccc38; /* Amarelo claro */
+  background-color: #FFFF00; /* Amarelo claro */
 }
 
 .vespertino {
@@ -39,12 +39,12 @@ input, select {
 }
 
 .feriado {
-  background-color: #3cc440; /* Verde claro */
+  background-color: #34d239; /* Verde claro */
 }
 
 .fechado {
   background-color: #000;
-  color: white;
+  color: #FF0000;
 }
 
 .domingo {

@@ -1,11 +1,13 @@
 const timeLoja = ["Pedro Henrique", "Derick", "João Pedro", "Eduardo", "Thamires",
-                  "Ianca", "Fernanda", "Renata", "Gabriel", "Jeferson"];
+                    "Ianca", "Fernanda", "Renata", "Gabriel", "Jeferson"];
+
 const timeSAC = ["Jamille", "Fabiana", "Micaele", "Thalita", "Cris",
-                 "Kelly Paiva", "Marília", "Felipe"];
+                "Kelly Paiva", "Marília", "Felipe"];
+
 const escala = [];
 
-const start = new Date("2025-05-20");
-const end = new Date("2025-07-20");
+const start = new Date("2025-05-20T00:00:00");
+const end = new Date("2025-07-20T00:00:00");
 
 let index1 = 0;
 let index2 = 0;
@@ -20,7 +22,8 @@ function getDayName(date) {
 }
 
 function getNextPerson(time, idxRef) {
-  return time[idxRef % time.length];
+  const person = time[idxRef % time.length];
+  return person;
 }
 
 for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
@@ -75,21 +78,25 @@ function renderTabela() {
     if (filtroDia !== "" && dia.toString() !== filtroDia) return;
     if (turnoSelecionado !== "" && turno !== turnoSelecionado) return;
 
-    let classe = "";
-    if (turno === "MATUTINO") classe = "matutino";  // Aplica cor amarela para turno matutino
-    else if (turno === "VESPERTINO") classe = "vespertino";  // Aplica cor azul para turno vespertino
-    else if (turno === "Feriado") classe = "feriado";  // Aplica cor verde para feriado
-    else if (turno === "Fechado") classe = "fechado";  // Aplica cor preta para turno fechado
-    else if (turno === "DOMINGO") classe = "domingo";  // Aplica cor vermelha para domingo
+    let turnoClass = '';
+    switch(turno) {
+      case 'MATUTINO':
+        turnoClass = 'matutino'; // Amarelo
+        break;
+      case 'VESPERTINO':
+        turnoClass = 'vespertino'; // Azul
+        break;
+      case 'DOMINGO':
+        turnoClass = 'domingo'; // Vermelho
+        break;
+      case 'Fechado':
+        turnoClass = 'fechado'; // Preto com letras brancas
+        break;
+    }
 
-    const row = `<tr class="${classe}">
-                  <td>${data}</td>
-                  <td>${diaNome}</td>
-                  <td>${turno}</td>
-                  <td>${horario}</td>
-                  <td>${t1}</td>
-                  <td>${t2}</td>
-                </tr>`;
+    const row = `<tr class="${turnoClass}">
+      <td>${data}</td><td>${diaNome}</td><td>${turno}</td><td>${horario}</td><td>${t1}</td><td>${t2}</td>
+    </tr>`;
     tbody.innerHTML += row;
   });
 }

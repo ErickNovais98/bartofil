@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Escala de Estande</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Escala de Trabalho - Estande Bartofil</h1>
+
+  <label for="filtro">Filtrar por nome:</label>
+  <input type="text" id="filtro" placeholder="Digite um nome...">
+
+  <label for="diaSemana">Filtrar por dia da semana:</label>
+  <select id="diaSemana">
+    <option value="">Todos</option>
+    <option value="0">Domingo</option>
+    <option value="1">Segunda-feira</option>
+    <option value="2">Terça-feira</option>
+    <option value="3">Quarta-feira</option>
+    <option value="4">Quinta-feira</option>
+    <option value="5">Sexta-feira</option>
+    <option value="6">Sábado</option>
+  </select>
+
+  <label for="turno">Filtrar por turno:</label>
+  <select id="turno">
+    <option value="">Todos</option>
+    <option value="MATUTINO">Matutino</option>
+    <option value="VESPERTINO">Vespertino</option>
+    <option value="DOMINGO">Domingo</option>
+    <option value="Fechado">Fechado</option>
+  </select>
+
+  <table id="escala">
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Dia</th>
+        <th>Turno</th>
+        <th>Horário</th>
+        <th>Time Loja</th>
+        <th>Time SAC</th>
+      </tr>
+    </thead>
+    <tbody id="tabela-corpo"></tbody>
+  </table>
+
+  <script src="script.js"></script>
+</body>
+</html>
